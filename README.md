@@ -1,6 +1,8 @@
 # OOPDB
 для успешного запуска программы необходимо создать базу данных postgresql.
+
 скрипт создания базы данных:
+
 -- Database: oopdb
 CREATE DATABASE oopdb
     WITH
@@ -13,6 +15,7 @@ CREATE DATABASE oopdb
     IS_TEMPLATE = False;
    
 скрипт создания таблиц:
+
 CREATE TABLE IF NOT EXISTS public.company
 (
     name text COLLATE pg_catalog."default" NOT NULL,
