@@ -25,6 +25,7 @@ public class TopManager implements Employee {
         SqlManager.generateInsertTopManager(Company.getName(), getMounthSalary());
     }
 
+
     @Override
     public void prepareAll(org.example.Company Company){
         this.Company = Company;

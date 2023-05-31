@@ -1,6 +1,7 @@
 package org.example;
 
 public interface Employee {
+
     int getMounthSalary();
 
     void createSalary();

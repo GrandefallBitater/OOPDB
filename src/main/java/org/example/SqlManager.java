@@ -52,6 +52,7 @@ public class SqlManager {
         }
     }
 
+
     public  static void deleteEmploee(String nameOfCTable, Company Company){
         String command;
         int id;

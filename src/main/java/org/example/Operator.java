@@ -22,6 +22,7 @@ public class Operator implements Employee {
         SqlManager.generateInsertOperator(Company.getName(), getMounthSalary());
     }
 
+
     @Override
     public void prepareAll(org.example.Company Company){
         this.Company = Company;

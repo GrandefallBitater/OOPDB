@@ -6,6 +6,7 @@ public class Manager implements Employee {
     private org.example.Company Company;
     private int MounthSalary;
 
+
     public int getPersonIncome() {
         return PersonIncome;
     }

@@ -52,6 +52,7 @@ public class Company {
         if (count <= 0) {
             return null;
         }
+
         List<Integer> sub;
         if(flag){
             sub = SqlManager.selectTop(this.getName());
