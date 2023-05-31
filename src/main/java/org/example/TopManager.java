@@ -2,7 +2,7 @@ package org.example;
 
 public class TopManager implements Employee {
     private final static int FixedSalary = 40000;
-    private company Company;
+    private org.example.Company Company;
     private int MounthSalary;
 
     @Override
@@ -11,7 +11,7 @@ public class TopManager implements Employee {
     }
 
     @Override
-    public void CreateSalary() {
+    public void createSalary() {
         MounthSalary = FixedSalary;
         if (Company.getIncome() > 10000000) {
             MounthSalary += 1.5 * MounthSalary;
@@ -19,16 +19,16 @@ public class TopManager implements Employee {
     }
 
     @Override
-    public void prepare(company Company){
+    public void prepare(org.example.Company Company){
         this.Company = Company;
-        CreateSalary();
-        sqlManager.generateInsertTopManager(Company.getName(), getMounthSalary());
+        createSalary();
+        SqlManager.generateInsertTopManager(Company.getName(), getMounthSalary());
     }
 
     @Override
-    public void prepareAll(company Company){
+    public void prepareAll(org.example.Company Company){
         this.Company = Company;
-        CreateSalary();
+        createSalary();
     }
 
     public String toString() {

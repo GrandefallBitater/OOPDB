@@ -3,7 +3,7 @@ package org.example;
 public class Manager implements Employee {
     private final static int FixedSalary = 40000;
     private int PersonIncome;
-    private company Company;
+    private org.example.Company Company;
     private int MounthSalary;
 
     public int getPersonIncome() {
@@ -18,7 +18,7 @@ public class Manager implements Employee {
     }
 
     @Override
-    public void CreateSalary() {
+    public void createSalary() {
         MounthSalary = FixedSalary + ((PersonIncome * 5) / 100);
     }
 
@@ -28,20 +28,20 @@ public class Manager implements Employee {
     }
 
     @Override
-    public void prepare(company Company){
+    public void prepare(org.example.Company Company){
         this.Company = Company;
         CreatePersonIncome();
-        CreateSalary();
-        sqlManager.updateCompanyIncome(Company.getName(), PersonIncome + Company.getIncome());
-        sqlManager.generateInsertManager(Company.getName(), getMounthSalary(), PersonIncome);
+        createSalary();
+        SqlManager.updateCompanyIncome(Company.getName(), PersonIncome + Company.getIncome());
+        SqlManager.generateInsertManager(Company.getName(), getMounthSalary(), PersonIncome);
     }
 
     @Override
-    public void prepareAll(company Company){
+    public void prepareAll(org.example.Company Company){
         this.Company = Company;
         CreatePersonIncome();
-        CreateSalary();
-        sqlManager.updateCompanyIncome(Company.getName(), PersonIncome + Company.getIncome());
+        createSalary();
+        SqlManager.updateCompanyIncome(Company.getName(), PersonIncome + Company.getIncome());
     }
 
     public String toString() {

@@ -3,25 +3,25 @@ package org.example;
 import java.util.Comparator;
 import java.util.List;
 
-public class company {
+public class Company {
 
     private final static int maxIncome = 20000000;
     private final static int minIncome = 8000000;
     private int Income;
     private final String name;
 
+    public Company(String name) {
+        this.Income = createIncome();
+        this.name = name;
+        SqlManager.generateInsertCompany(this.name, Income);
+    }
+
     public String getName() {
         return name;
     }
 
-    public company(String name) {
-        this.Income = createIncome();
-        this.name = name;
-        sqlManager.generateInsertCompany(this.name, Income);
-    }
-
     public int getIncome() {
-        return sqlManager.selectCompanyIncome(this.getName());
+        return SqlManager.selectCompanyIncome(this.getName());
     }
 
     private int createIncome() {
@@ -41,31 +41,26 @@ public class company {
                 listOfEmployees) {
             e.prepareAll(this);
         }
-        sqlManager.insertHireAll(listOfEmployees, this);
+        SqlManager.insertHireAll(listOfEmployees, this);
     }
 
     public void fire(String type) {
-        sqlManager.deleteEmploee(type, this);
+        SqlManager.deleteEmploee(type, this);
     }
 
-    public List<Integer> getTopSalaryStaff(int count) {
+    public List<Integer> getTopORLowestSalaryStaff(int count, boolean flag) {
         if (count <= 0) {
             return null;
         }
         List<Integer> sub;
-        sub = sqlManager.selectTop(this.getName());
-        sub.sort(Comparator.reverseOrder());
+        if(flag){
+            sub = SqlManager.selectTop(this.getName());
+            sub.sort(Comparator.reverseOrder());
+        }else {
+            sub = SqlManager.selectLowest(this.getName());
+            sub.sort(Comparator.naturalOrder());
+        }
         return sub.subList(0, count);
-    }
-
-    public List<Integer> getLowestSalaryStaff(int count) {
-        if (count <= 0) {
-            return null;
-        }
-        List<Integer> sub;
-        sub = sqlManager.selectLowest(this.getName());
-        sub.sort(Comparator.naturalOrder());
-        return sub.subList(0 , count);
     }
 
     public String toString() {

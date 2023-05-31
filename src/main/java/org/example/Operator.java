@@ -3,7 +3,7 @@ package org.example;
 public class Operator implements Employee {
     private final static int FixedSalary = 20000;
     private int MounthSalary;
-    private company Company;
+    private org.example.Company Company;
 
     @Override
     public int getMounthSalary() {
@@ -11,21 +11,21 @@ public class Operator implements Employee {
     }
 
     @Override
-    public void CreateSalary() {
+    public void createSalary() {
         MounthSalary = FixedSalary;
     }
 
     @Override
-    public void prepare(company Company){
+    public void prepare(org.example.Company Company){
         this.Company = Company;
-        CreateSalary();
-        sqlManager.generateInsertOperator(Company.getName(), getMounthSalary());
+        createSalary();
+        SqlManager.generateInsertOperator(Company.getName(), getMounthSalary());
     }
 
     @Override
-    public void prepareAll(company Company){
+    public void prepareAll(org.example.Company Company){
         this.Company = Company;
-        CreateSalary();
+        createSalary();
     }
 
     public String toString() {

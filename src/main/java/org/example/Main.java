@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        sqlManager.clearDB();
+        SqlManager.clearDB();
         //-------
-        company firstCompany = new company("test1");
+        Company firstCompany = new Company("ruslan");
         List<Employee> StaffList;
         StaffList = CreateStaff(160, 80, 10);
         firstCompany.hireAll(StaffList);
@@ -54,9 +54,9 @@ public class Main {
         return ListOfEmployee;
     }
 
-    private static void TopSalary(int count, company firstCompany) {
+    private static void TopSalary(int count, Company firstCompany) {
 
-        List<Integer> topSalaryStaff = firstCompany.getTopSalaryStaff(count);
+        List<Integer> topSalaryStaff = firstCompany.getTopORLowestSalaryStaff(count, true);
         if (topSalaryStaff == null) {
             System.out.println("некорретное число работников");
         } else {
@@ -67,8 +67,8 @@ public class Main {
         }
     }
 
-    private static void LowestSalary(int count, company firstCompany) {
-        List<Integer> lowestSalaryStaff = firstCompany.getLowestSalaryStaff(count);
+    private static void LowestSalary(int count, Company firstCompany) {
+        List<Integer> lowestSalaryStaff = firstCompany.getTopORLowestSalaryStaff(count, false);
         if (lowestSalaryStaff == null) {
             System.out.println("некорретное число работников");
         } else {

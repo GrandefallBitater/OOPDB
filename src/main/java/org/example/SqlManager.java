@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class sqlManager {
+public class SqlManager {
     public static void clearDB(){
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:postgresql://127.0.0.1:5432/oopdb", "postgres", "ROOT");
@@ -52,17 +52,17 @@ public class sqlManager {
         }
     }
 
-    public  static void deleteEmploee(String nameOfCTable, company Company){
+    public  static void deleteEmploee(String nameOfCTable, Company Company){
         String command;
         int id;
 
         command = "select id from " + nameOfCTable + " where company_name = '" + Company.getName() +"' ";
-        id = sqlManager.selectEmployeeId(command);
+        id = SqlManager.selectEmployeeId(command);
         command = "delete from "+nameOfCTable+" where id = "+id+";";
         fireEmploee(command);
     }
 
-    public static void insertHireAll(List<Employee> List, company Company){
+    public static void insertHireAll(List<Employee> List, Company Company){
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:postgresql://127.0.0.1:5432/oopdb", "postgres", "ROOT");
              Statement statement = conn.createStatement()) {

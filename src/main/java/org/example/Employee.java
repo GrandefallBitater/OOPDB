@@ -3,9 +3,9 @@ package org.example;
 public interface Employee {
     int getMounthSalary();
 
-    void CreateSalary();
+    void createSalary();
 
-    void prepare(company Company);
+    void prepare(Company Company);
 
-    void prepareAll(company Company);
+    void prepareAll(Company Company);
 }
