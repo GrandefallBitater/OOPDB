@@ -20,15 +20,17 @@ public class Main {
         LowestSalary(30, firstCompany);
 
         //увольняем 50% сотрудников
+        List<String> type = new ArrayList<>();
         for (int i = 0; i < 80; i++){
-            firstCompany.fire("operator");
+            type.add("operator");
         }
         for (int i1 = 0; i1 < 40; i1++){
-            firstCompany.fire("manager");
+            type.add("manager");
         }
         for (int i2 = 0; i2 < 5; i2++){
-            firstCompany.fire("topmanager");
+            type.add("topmanager");
         }
+        firstCompany.fire(type);
         System.out.println("\nудаление прошло успешно");
 
         System.out.println("\nСписок из пятнадцати зарплат по убыванию:");

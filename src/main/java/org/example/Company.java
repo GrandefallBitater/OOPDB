@@ -44,8 +44,8 @@ public class Company {
         SqlManager.insertHireAll(listOfEmployees, this);
     }
 
-    public void fire(String type) {
-        SqlManager.deleteEmploee(type, this);
+    public void fire(List<String> type) {
+        SqlManager.deleteEmployee(type, this);
     }
 
     public List<Integer> getTopORLowestSalaryStaff(int count, boolean flag) {
